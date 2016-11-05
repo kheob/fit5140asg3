@@ -4,21 +4,6 @@
     <list default="true" id="f551a40c-67f3-499a-b7b0-a4878e891337" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/leven" afterPath="$PROJECT_DIR$/node_modules/.bin/leven" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/mosca" afterPath="$PROJECT_DIR$/node_modules/.bin/mosca" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/mqtt_pub" afterPath="$PROJECT_DIR$/node_modules/.bin/mqtt_pub" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/mqtt_sub" afterPath="$PROJECT_DIR$/node_modules/.bin/mqtt_sub" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/msgpack" afterPath="$PROJECT_DIR$/node_modules/.bin/msgpack" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/node-gyp" afterPath="$PROJECT_DIR$/node_modules/.bin/node-gyp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/node-ninja" afterPath="$PROJECT_DIR$/node_modules/.bin/node-ninja" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/nopt" afterPath="$PROJECT_DIR$/node_modules/.bin/nopt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/pino" afterPath="$PROJECT_DIR$/node_modules/.bin/pino" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/prebuild" afterPath="$PROJECT_DIR$/node_modules/.bin/prebuild" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/quote-stream" afterPath="$PROJECT_DIR$/node_modules/.bin/quote-stream" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/st" afterPath="$PROJECT_DIR$/node_modules/.bin/st" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/uuid" afterPath="$PROJECT_DIR$/node_modules/.bin/uuid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/which" afterPath="$PROJECT_DIR$/node_modules/.bin/which" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/levelup/node_modules/.bin/semver" afterPath="$PROJECT_DIR$/node_modules/levelup/node_modules/.bin/semver" />
     </list>
     <ignored path="fit5140asg3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,8 +29,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="98" column="2" selection-start-line="98" selection-start-column="2" selection-end-line="98" selection-end-column="2" />
+            <state relative-caret-position="795">
+              <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -219,12 +204,12 @@
       <updated>1478341905534</updated>
       <workItem from="1478341906724" duration="390000" />
       <workItem from="1478342317523" duration="17000" />
-      <workItem from="1478342392323" duration="493000" />
+      <workItem from="1478342392323" duration="666000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="900000" />
+    <option name="totallyTimeSpent" value="1073000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="23" width="1280" height="1347" extended-state="0" />
@@ -283,8 +268,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="98" column="2" selection-start-line="98" selection-start-column="2" selection-end-line="98" selection-end-column="2" />
+        <state relative-caret-position="795">
+          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding />
         </state>
       </provider>
