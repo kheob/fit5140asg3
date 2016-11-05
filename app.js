@@ -43,15 +43,18 @@ let FULL_EMPTY = 11;
 
 // Apple Push Notification settings
 var service = new apn.Provider({
-    cert: 'certs/YGMCert.pem',
-    key: 'certs/YGMKey.pem'
+    cert: 'certs/cert.pem',
+    key: 'certs/key.pem'
 });
+
+// IP of devices server
+var devicesIP = "144.138.51.105";
 
 // Function that sends the message
 var send = function(status) {
     // get the deviceID from the Server's JSON object
     request({
-	url: "http://144.138.51.105:3000/devices",
+	url: "http://" + devicesIP + ":3000/devices",
 	json: true
     }, function (error, response, body) {
 	if (!error && response.statusCode === 200) {
