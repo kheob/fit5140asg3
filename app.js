@@ -21,7 +21,7 @@ var version = 0x20;
 var proxSensor = new i2c(address, {device: '/dev/i2c-1'});
 
 // constant value, for checking the status of the mailbox
-let PROX_EMPTY_MAX = 2240;
+let PROX_EMPTY_MAX = 2243;
 let PROX_HALF_MIN = 2270;
 let PROX_FULL_MIN = 3000;
 var oldProxVal = 2220;
