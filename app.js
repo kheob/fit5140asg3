@@ -46,8 +46,8 @@ let FULL_EMPTY = 11;
 
 // Apple Push Notification settings
 var service = new apn.Provider({
-    cert: 'certs/cert.pem',
-    key: 'certs/key.pem'
+    cert: 'certs/YGMCert.pem',
+    key: 'certs/YGMKey.pem'
 });
 
 // IP of devices server
@@ -120,6 +120,7 @@ proxSensor.readByte(function(err, res) {
 });
 
 // Express setup
+// Get endpoint to retrieve the status of the mailbox
 app.get("/mailbox", function(req, res) {
 	res.json({percentageFilled: mailboxStatus});
 });
@@ -176,9 +177,9 @@ function setup() {
 		if (newProxVal <= PROX_EMPTY_MAX) {
 			mailboxStatus = 0;
 		} else if (newProxVal <= PROX_HALF_MIN) {
-			mailboxStatus = 50;
+			mailboxStatus = 33;
 		} else if (newProxVal <= PROX_FULL_MIN) {
-			mailboxStatus = 75;
+			mailboxStatus = 67;
 		} else {
 			mailboxStatus = 100;
 		}
