@@ -22,10 +22,13 @@ var proxSensor = new i2c(address, {device: '/dev/i2c-1'});
 
 // constant value, for checking the status of the mailbox
 let PROX_EMPTY_MAX = 2240;
-let PROX_HALF_MIN = 2265;
+let PROX_HALF_MIN = 2270;
 let PROX_FULL_MIN = 3000;
 var oldProxVal = 2220;
 var newProxVal = 2221;
+
+// Holds the current status of the mailbox
+var mailboxStatus = 0;
 
 // scenarios for the status of mailbox, change from first statuse to second.
 let EMPTY_LESSHALF = 0;
@@ -66,20 +69,20 @@ var send = function(status) {
 		deviceIDs.push(body['devices'][i]['deviceID']);
 	    }
 	    // construct the message for the notification
-	    var msg = ""
+	    var msg = "";
 	    switch(status) {
-		case 0: msg = "Your mailbox status is changed from Empty to Less than half filled."; console.log(0); break;
-		case 1: msg = "Your mailbox status is changed from Empty to More than half filled."; console.log(1); break;
-		case 2: msg = "Your mailbox status is changed from Empty to Full."; console.log(2); break;
-		case 3: msg = "Your mailbox status is changed from Less than half filled to empty."; console.log(3); break;
-		case 4: msg = "Your mailbox status is changed from Less than half filled to More than half filled."; console.log(4); break;
-		case 5: msg = "Your mailbox status is changed from Less than half filled to Full."; console.log(5); break;
-		case 6: msg = "Your mailbox status is changed from More than half filled to Less than half filled."; console.log(6); break;
-		case 7: msg = "Your mailbox status is changed from More than half filled to Full."; console.log(7); break;
-		case 8: msg = "Your mailbox status is changed from More than half filled to Empty."; console.log(8); break;
-		case 9: msg = "Your mailbox status is changed from Full to More than half filled."; console.log(9); break;
-		case 10: msg = "Your mailbox status is changed from Full to Less than half filled."; console.log(10); break;
-		case 11: msg = "Your mailbox status is changed from Full to Empty."; console.log(11); break;
+		case 0: msg = "You've received a new letter! Check your mailbox."; console.log(0); break; // "Your mailbox status is changed from Empty to Less than half filled."; console.log(0); break;
+		case 1: msg = "Your mailbox is halfway full."; console.log(1); break; // "Your mailbox status is changed from Empty to More than half filled."; console.log(1); break;
+		case 2: msg = "Your mailbox is full!"; console.log(2); break; // "Your mailbox status is changed from Empty to Full."; console.log(2); break;
+		case 3: msg = "Your mailbox has been emptied."; console.log(3); break; // "Your mailbox status is changed from Less than half filled to empty."; console.log(3); break;
+		case 4: msg = "Your mailbox is almost full!"; console.log(4); break; // "Your mailbox status is changed from Less than half filled to More than half filled."; console.log(4); break;
+		case 5: msg = "Your mailbox is full!"; console.log(5); break; // "Your mailbox status is changed from Less than half filled to Full."; console.log(5); break;
+		case 6: msg = "There's still something in your mailbox!"; console.log(6); break; // "Your mailbox status is changed from More than half filled to Less than half filled."; console.log(6); break;
+		case 7: msg = "Your mailbox is full!"; console.log(7); break; // "Your mailbox status is changed from More than half filled to Full."; console.log(7); break;
+		case 8: msg = "Your mailbox has been emptied."; console.log(8); break; // "Your mailbox status is changed from More than half filled to Empty."; console.log(8); break;
+		case 9: msg = "There's still something in your mailbox!"; console.log(9); break; // "Your mailbox status is changed from Full to More than half filled."; console.log(9); break;
+		case 10: msg = "There's still something in your mailbox!"; console.log(10); break; // "Your mailbox status is changed from Full to Less than half filled."; console.log(10); break;
+		case 11: msg = "Your mailbox has been emptied."; console.log(10); break; // "Your mailbox status is changed from Full to Empty."; console.log(11); break;
 	    }
 
 	    var notification = new apn.Notification();
@@ -114,6 +117,15 @@ proxSensor.readByte(function(err, res) {
     } else {
 	console.log(err);
     }
+});
+
+// Express setup
+app.get("/mailbox", function(req, res) {
+	res.json({percentageFilled: mailboxStatus});
+});
+
+app.listen(3001, function() {
+	console.log("Server listening on port 3001");
 });
 
 // setup the sensor and read the data
@@ -158,7 +170,18 @@ function setup() {
 		if ((newProxVal >= PROX_HALF_MIN) && (newProxVal < PROX_FULL_MIN)) {send(FULL_MOREHALF);}
 		else if ((newProxVal < PROX_HALF_MIN) && (newProxVal > PROX_EMPTY_MAX)) {send(FULL_LESSHALF);}
 		else if (newProxVal <= PROX_EMPTY_MAX) {send(FULL_EMPTY);}
-	    } 
+	    }
+
+	    // Update the status variable
+		if (newProxVal <= PROX_EMPTY_MAX) {
+			mailboxStatus = 0;
+		} else if (newProxVal <= PROX_HALF_MIN) {
+			mailboxStatus = 50;
+		} else if (newProxVal <= PROX_FULL_MIN) {
+			mailboxStatus = 75;
+		} else {
+			mailboxStatus = 100;
+		}
 	});
 	
 	//var message = {
