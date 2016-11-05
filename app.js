@@ -169,5 +169,5 @@ function setup() {
 	//};
 	//mqtt.publish(message, function(){});
 	//res[2] * 256 + res[3]
-    }, 1000);    
+    }, 10000);
 }
