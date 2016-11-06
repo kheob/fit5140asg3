@@ -185,13 +185,14 @@ function setup() {
 		}
 	});
 	
-	//var message = {
-	//    topic: '/mailbox',
-	//    payload: "empty",
-	//    qos: 0,
-	//    retain: false
-	//};
-	//mqtt.publish(message, function(){});
-	//res[2] * 256 + res[3]
+	var message = {
+	   topic: '/mailbox',
+	   payload: mailboxStatus,
+	   qos: 0,
+	   retain: false
+	};
+	mqtt.publish(message, function(){
+		console.log('Mailbox status: ' + mailboxStatus);
+	});
     }, 10000);
 }
