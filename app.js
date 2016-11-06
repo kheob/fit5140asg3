@@ -187,7 +187,7 @@ function setup() {
 	
 	var message = {
 	   topic: '/mailbox',
-	   payload: mailboxStatus,
+	   payload: "" + mailboxStatus,
 	   qos: 0,
 	   retain: false
 	};
