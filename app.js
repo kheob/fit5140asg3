@@ -185,18 +185,11 @@ function setup() {
 		}
 	});
 	
-	// var message = {
-	//    topic: '/mailbox',
-	//    payload: "" + mailboxStatus,
-	//    qos: 0,
-	//    retain: false
-	// };
-
 	var message = {
-		topic: '/mailbox',
-		payload: "" + Math.floor((Math.random() * 100) + 1),
-		qos: 0,
-		retain: false
+	   topic: '/mailbox',
+	   payload: "" + mailboxStatus,
+	   qos: 0,
+	   retain: false
 	};
 
 	mqtt.publish(message, function(){
