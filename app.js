@@ -194,7 +194,7 @@ function setup() {
 
 	var message = {
 		topic: '/mailbox',
-		payload: "" + Math.floor(Math.random() * 100),
+		payload: "" + Math.floor((Math.random() * 100) + 1),
 		qos: 0,
 		retain: false
 	};
